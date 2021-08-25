@@ -6,7 +6,21 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "automate:provisioning": "cd automation&&demo-cli provisioning generate-request",
+    "automate:integration:sfmc": "cd automation&&demo-cli integration generate-sfmc-request",
+    "automate:configure": "cd automation&&demo-cli configure",
+    "automate:media": "cd automation&&demo-cli configure&&demo-cli media get-buckets&&demo-cli media import&&demo-cli media get-assets",
+    "automate:serverless": "cd automation&&demo-cli configure&&demo-cli repositories clone&&demo-cli serverless configure&&demo-cli serverless install&&demo-cli serverless deploy&&demo-cli serverless get-endpoints",
+    "automate:webapp:configure": "cd automation&&demo-cli configure&&demo-cli webapp configure",
+    "automate:settings": "cd automation&&demo-cli configure&&demo-cli content configure&&dc-cli settings import ./repositories/content/settings/settings.json --mapFile workflow-states-mapping.json&&demo-cli content get-workflow-states&&demo-cli content get-content-repositories",
+    "automate:schemas": "cd automation&&demo-cli configure&&demo-cli content configure&&dc-cli content-type-schema import ./repositories/content/content-type-schemas&&dc-cli content-type import ./repositories/content/content-types --sync",
+    "automate:webhooks": "cd automation&&demo-cli configure&&demo-cli content configure&&dc-cli webhooks import ./repositories/content/webhooks/webhooks.json",
+    "automate:extensions": "cd automation&&demo-cli configure&&demo-cli content configure&&dc-cli extensions import ./repositories/content/extensions/extensions.json",
+    "automate:indexes": "cd automation&&demo-cli configure&&demo-cli content configure&&dc-cli indexes import ./repositories/content/indexes/test-index.json&&dc-cli indexes import ./repositories/content/indexes/indexes.json&&demo-cli content get-search-api-key",
+    "automate:content": "cd automation&&demo-cli configure&&demo-cli content configure&&dc-cli content-item import ./repositories/content/content-items --mapFile hub-mapping.json&&demo-cli content get-hierarchies",
+    "automate:content-with-republish": "cd automation&&demo-cli configure&&demo-cli content configure&&dc-cli content-item import ./repositories/content/content-items --republish --mapFile hub-mapping.json&&demo-cli content get-hierarchies",
+    "automate:all": "run-s automate:configure automate:media automate:extensions automate:schemas automate:content-with-republish automate:schemas"
   },
   "dependencies": {
     "next": "11.1.0",
@@ -15,6 +29,7 @@
   },
   "devDependencies": {
     "eslint": "7.32.0",
-    "eslint-config-next": "11.1.0"
+    "eslint-config-next": "11.1.0",
+    "npm-run-all": "^4.1.5"
   }
 }

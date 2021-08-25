@@ -1,0 +1,82 @@
+algolia:
+  tacit_appId: 
+  tacit_apiKey: 
+  indexes:
+    blog:
+      prod: <HUB NAME>.blog-production
+      staging: <HUB NAME>.blog-staging
+    ruleBased:
+      prod: <HUB NAME>.rule-based-production
+      staging: <HUB NAME>.rule-based-staging
+    productListSearch:
+      prod: prod_willow_products
+app:
+  appName: amp-rsa-<HUBNAME NAME>
+  publishStage: production
+  defaultPreviewMode: PRODUCTION
+  scope: amplience-presales
+graphql:
+  graphqlUrl: https://amp-commerce-graphql.herokuapp.com/graphql
+  graphqlUrlDev: http://anansi.local:3000/graphql
+  backendKey: commercetools/anyafinn
+socketIo:
+  socketIoServer: https://rocky-plateau-17064.herokuapp.com
+analytics:
+  ga:
+    enabled: true
+    trackingId: UA-196405991-1
+    googleAnalyticsClientId: 651905227529-oufae1an675vuaugjnkgfeb6uod8ek0q.apps.googleusercontent.com
+    googleAnalyticsViewId: 242512327
+    googleAnalyticsClientEmail: >-
+      amp-retail-storefront-account@amp-retailstorefront-analytics.iam.gserviceaccount.com
+    googleAnalyticsKey: >-
+      -----BEGIN PRIVATE
+      KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC4mKNmwt4wTc4n...
+      PRIVATE KEY-----\\n
+googlemaps:
+  apiKey: 
+cms:
+  contentBaseUri: https://amp-rsa.amplience.com
+  cardsAppUrl: https://amp-rsa-cards.vercel.app
+  contentApi: <ACCOUNT NAME>.cdn.content.amplience.net
+  stagingName: 
+  stagingApi: 
+  trustedHostSuffixes:
+    - .cdn.content.amplience.net
+    - .staging.bigcontent.io
+  accountName: <ACCOUNT NAME>
+  hubName: <HUB NAME>
+  hubLabel: <HUB LABEL>
+  productImageHubName: willow
+  imageBasePath: cdn.media.amplience.net
+  clientId: 
+  clientSecret: 
+  hubId: 
+dam:
+  username: 
+  password: 
+  source:
+    type: s3
+    bucket: nova-dam-assets-anyafinn
+    region: eu-west-3
+commercetools:
+  authUrl: https://auth.europe-west1.gcp.commercetools.com
+  apiUrl: https://api.europe-west1.gcp.commercetools.com
+  projectKey: anyafinn
+  clientId: 
+  clientSecret: 
+  defaultScopes:
+    - view_products:anyafinn
+    - view_categories:anyafinn
+    - view_published_products:anyafinn
+    - create_anonymous_token:anyafinn
+dynamicyield:
+  apiKey: 
+personify:
+  personifyApi:
+  active: true
+serverless:
+  customProfileName: 
+  provider:
+    stage: dev
+    region: eu-west-3

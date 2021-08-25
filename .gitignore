@@ -32,3 +32,10 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+automation/repositories/
+automation/provisioning.yaml
+automation/integration.yaml
+automation/settings.yaml
+automation/settings.yaml.backup
+automation/spec.yaml.vm

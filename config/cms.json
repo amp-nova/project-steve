@@ -1,0 +1,8 @@
+{
+    "contentApi": "rezademo.cdn.content.amplience.net",
+    "stagingApi": "1rvmrhoqqdd6v109jl5x2t3b2z.staging.bigcontent.io",
+    "hubName": "rezademo",
+    "accountName": "rezademo",
+    "imageBasePath": "i8.amplience.net",
+    "contentBaseUri": "https://project-steve.amplience.com"
+}

@@ -20,7 +20,7 @@ graphql:
   graphqlUrlDev: http://anansi.local:3000/graphql
   backendKey: commercetools/anyafinn
 socketIo:
-  socketIoServer: https://rocky-plateau-17064.herokuapp.com
+  socketIoServer: https://socketio.amprsa.net
 analytics:
   ga:
     enabled: true

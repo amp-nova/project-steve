@@ -1,0 +1,62 @@
+{ 
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://project-steve.amprsa.net/splitBlock.json",
+"title": "Split Block",
+  "description": "A reusable content type which allows 2 content types to be used together to create a split block",
+  "allOf": [
+    {
+      "$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/content"
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "content": {
+      "type": "array",
+      "title": "Content",
+      "description": "Content to be used in the split block (left and right)",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/content-link"
+          },
+          {
+            "properties": {
+              "contentType": {
+                "title": "",
+                "enum": [
+                  "https://project-steve.amprsa.net/image.json",
+                  "https://project-steve.amprsa.net/video.json",
+                  "https://project-steve.amprsa.net/text.json",
+				          "https://project-steve.amprsa.net/card.json",
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "split": {
+      "type": "string",
+      "title": "Split Ratio",
+      "description": "The percentage of display used for the left and right content (left/right)",
+      "enum": [
+        "50/50",
+        "70/30",
+        "30/70"
+      ]
+    },
+    "bgcol": {
+      "title": "Background Color",
+      "description": "Set a background color for the split block",
+      "format": "color",
+      "type": "string"
+    }
+  },
+  "propertyOrder": [
+    "content",
+    "split",
+    "bgcol"
+  ]
+}

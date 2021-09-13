@@ -1,0 +1,41 @@
+{
+  "contentTypeUri": "https://project-steve.amprsa.net/video.json",
+  "status": "ACTIVE",
+  "settings": {
+    "label": "Video",
+    "icons": [
+      {
+        "size": 512,
+        "url": "https://raw.githubusercontent.com/neilmistryamplience/dc-example-website/willow/icons/icon-video.png"
+      }
+    ],
+    "visualizations": [
+      {
+        "label": "Site",
+        "templatedUri": "https://project-steve.amprsa.net/visualization?vse={{vse.domain}}&content={{content.sys.id}}&locale={{locales}}&realtime=true",
+        "default": true
+      },
+      {
+        "label": "Development",
+        "templatedUri": "http://localhost:3000/cms/visualization?content={{content.sys.id}}&vse={{vse.domain}}&locale={{locales}}&realtime=true",
+        "default": false
+      },
+      {
+        "label": "QR for Mobile",
+        "templatedUri": "https://project-steve.amprsa.net/visualization/qr?vse={{vse.domain}}&content={{content.sys.id}}&locale={{locales}}",
+        "default": false
+      },
+      {
+        "label": "JSON",
+        "templatedUri": "https://delivery-preview.visualizations.content.amplience.net?id={{content.sys.id}}&vse={{vse.domain}}&locale={{locales}}&hub=machathon3&realtime=true",
+        "default": false
+      }
+    ],
+    "cards": [
+      {
+        "templatedUri": "https://amp-rsa-cards.vercel.app/?#vse={{vse.domain}}&content={{content.sys.id}}"
+      }
+    ]
+  },
+  "repositories": [ "content" ]
+}

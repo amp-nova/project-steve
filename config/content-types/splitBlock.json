@@ -1,0 +1,46 @@
+{
+  "contentTypeUri": "https://project-steve.amprsa.net/splitBlock.json",
+  "status": "ACTIVE",
+  "settings": {
+    "label": "Split Block",
+    "icons": [
+      {
+        "size": 256,
+        "url": "https://cdn.media.amplience.net/i/willow/CT-icon-style4-splitblock?fmt=jpg&bg=white&w=300"
+      }
+    ],
+    "visualizations": [
+      {
+        "label": "Site",
+        "templatedUri": "https://project-steve.amprsa.net/visualization?vse={{vse.domain}}&content={{content.sys.id}}&locale={{locales}}&realtime=true",
+        "default": true
+      },
+      {
+        "label": "Development",
+        "templatedUri": "http://localhost:3000/cms/visualization?content={{content.sys.id}}&vse={{vse.domain}}&locale={{locales}}&realtime=true",
+        "default": false
+      },
+      {
+        "label": "Android App",
+        "templatedUri": "https://appetize.io/embed/?device=nexus5&scale=100&autoplay=false&orientation=portrait&deviceColor=black&params=%7B%22cms%22%3A%22http%3A%2F%2F{{vse.domain}}%22%2C%22contentId%22%3A%22{{content.sys.id}}%22%2C%20%22locale%22%3A%20%22{{locales}}%22%7D",
+        "default": false
+      },
+      {
+        "label": "QR for Mobile",
+        "templatedUri": "https://project-steve.amprsa.net/visualization/qr?vse={{vse.domain}}&content={{content.sys.id}}&locale={{locales}}",
+        "default": false
+      },
+      {
+        "label": "JSON",
+        "templatedUri": "https://delivery-preview.visualizations.content.amplience.net?id={{content.sys.id}}&vse={{vse.domain}}&locale={{locales}}&hub=machathon3&realtime=true",
+        "default": false
+      }
+    ],
+    "cards": [
+      {
+        "templatedUri": "https://amp-rsa-cards.vercel.app/?#vse={{vse.domain}}&content={{content.sys.id}}"
+      }
+    ]
+  },
+  "repositories": [ "content" ]
+}

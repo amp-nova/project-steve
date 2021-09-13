@@ -1,0 +1,5 @@
+{
+  "body": "./schemas/image-schema.json",
+  "schemaId": "https://project-steve.amprsa.net/image.json",
+  "validationLevel": "CONTENT_TYPE"
+}

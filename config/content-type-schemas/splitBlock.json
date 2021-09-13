@@ -1,0 +1,5 @@
+{
+  "body": "./schemas/splitBlock-schema.json",
+  "schemaId": "https://project-steve.amprsa.net/splitBlock.json",
+  "validationLevel": "CONTENT_TYPE"
+}

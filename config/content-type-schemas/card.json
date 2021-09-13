@@ -1,0 +1,5 @@
+{
+  "body": "./schemas/card-schema.json",
+  "schemaId": "https://project-steve.amprsa.net/card.json",
+  "validationLevel": "CONTENT_TYPE"
+}

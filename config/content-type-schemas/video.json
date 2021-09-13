@@ -1,0 +1,5 @@
+{
+  "body": "./schemas/video-schema.json",
+  "schemaId": "https://project-steve.amprsa.net/video.json",
+  "validationLevel": "CONTENT_TYPE"
+}

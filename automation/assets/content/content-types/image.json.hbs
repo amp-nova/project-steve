@@ -1,0 +1,41 @@
+{
+  "contentTypeUri": "{{cms.contentBaseUri}}/image.json",
+  "status": "ACTIVE",
+  "settings": {
+    "label": "Image",
+    "icons": [
+      {
+        "size": 512,
+        "url": "https://raw.githubusercontent.com/neilmistryamplience/dc-example-website/willow/icons/icon-image.png"
+      }
+    ],
+    "visualizations": [
+      {
+        "label": "Site",
+        "templatedUri": "{{app.url}}/visualization?vse=\{{vse.domain}}&content=\{{content.sys.id}}&locale=\{{locales}}&realtime=true",
+        "default": true
+      },
+      {
+        "label": "Development",
+        "templatedUri": "http://localhost:3000/cms/visualization?content=\{{content.sys.id}}&vse=\{{vse.domain}}&locale=\{{locales}}&realtime=true",
+        "default": false
+      },
+      {
+        "label": "QR for Mobile",
+        "templatedUri": "{{app.url}}/visualization/qr?vse=\{{vse.domain}}&content=\{{content.sys.id}}&locale=\{{locales}}",
+        "default": false
+      },
+      {
+        "label": "JSON",
+        "templatedUri": "https://delivery-preview.visualizations.content.amplience.net?id=\{{content.sys.id}}&vse=\{{vse.domain}}&locale=\{{locales}}&hub={{cms.hubName}}&realtime=true",
+        "default": false
+      }
+    ],
+    "cards": [
+      {
+        "templatedUri": "{{cms.cardsAppUrl}}/?#vse=\{{vse.domain}}&content=\{{content.sys.id}}"
+      }
+    ]
+  },
+  "repositories": [ "content" ]
+}

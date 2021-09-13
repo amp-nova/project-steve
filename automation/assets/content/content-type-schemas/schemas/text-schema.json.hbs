@@ -1,0 +1,33 @@
+{ 
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "{{cms.contentBaseUri}}/text.json",
+	"title": "Text",
+	"description": "Re-usable content type which allows for rich text",
+	"allOf": [
+		{
+			"$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/content"
+		}
+	],
+	"type": "object",
+	"properties": {
+		"text": {
+			"type": "string",
+			"title": "Text",
+			"description": "Enter textual content here",
+			"validation": "Please enter less than 6000 characters",
+			"format": "markdown",
+			"minLength": 0,
+			"maxLength": 6000
+		},
+		"align": {
+			"type": "string",
+			"title": "Text Align",
+			"description": "How the text will align in this text box",
+			"enum": [
+				"left",
+				"center",
+				"right"
+			]
+		}
+	}
+}

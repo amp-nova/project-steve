@@ -1,0 +1,44 @@
+{
+  "$schema": "http://bigcontent.io/cms/schema/v1/schema#",
+  "id": "{{cms.contentBaseUri}}/link.json",
+  "title": "Link",
+  "description": "URL action link",
+  "allOf": [
+    {
+      "$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/content"
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "label": {
+      "type": "string",
+      "title": "Label",
+      "description": "The label to be used on display of a link",
+      "minLength": 0,
+      "maxLength": 255
+    },
+    "value": {
+      "type": "string",
+      "title": "Value",
+      "description": "A relative URL, absolute URL or an ID",
+      "minLength": 0,
+      "maxLength": 2000
+    },
+    "type": {
+      "type": "string",
+      "title": "Link Type",
+      "description": "The type of link. Default is URL",
+      "enum": [
+        "URL",
+        "Category ID",
+        "Product SKU",
+        "Page ID"
+      ]
+    }
+  },
+  "propertyOrder": [
+    "label",
+    "type",
+    "value"
+  ]
+}

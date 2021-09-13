@@ -1,0 +1,58 @@
+{ 
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "{{cms.contentBaseUri}}/card.json",
+  "title": "Card",
+  "description": "A single card of content",
+  "allOf": [
+    {
+      "$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/content"
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "image": {
+      "type": "object",
+      "title": "Image",
+      "description": "Image used in the card",
+      "allOf": [
+        {
+          "$ref": "{{cms.contentBaseUri}}/image.json"
+        }
+      ]
+    },
+    "cardName": {
+      "type": "string",
+      "title": "Name",
+      "description": "Name of the card",
+      "validation": "Please enter less than 50 characters",
+      "minLength": 0,
+      "maxLength": 150
+    },
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "description": "Card description",
+      "validation": "Please enter less than 50 characters",
+      "minLength": 0,
+      "maxLength": 500
+    },
+    "links": {
+      "type": "array",
+      "title": "Links",
+      "description": "Links for the card",
+      "items": {
+        "$ref": "{{cms.contentBaseUri}}/link.json"
+      },
+      "minItems": 0,
+      "maxItems": 4
+    },
+    "style": {
+      "type": "string",
+      "title": "Style",
+      "description": "Add classname for CSS styling",
+      "validation": "Please enter between 0 and 100 characters",
+      "minLength": 0,
+      "maxLength": 100
+    }
+  }
+}

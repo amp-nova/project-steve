@@ -1,0 +1,58 @@
+{
+  "$schema": "http://bigcontent.io/cms/schema/v1/schema#",
+  "id": "{{cms.contentBaseUri}}/image.json",
+  "title": "Image",
+  "description": "Basic image with SEO information and allow roundels",
+  "allOf": [
+    {
+      "$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/content"
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "image": {
+      "type": "object",
+      "title": "Image",
+      "description": "Image",
+      "anyOf": [
+        {
+          "$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/image-link"
+        }
+      ]
+    },
+    "imageAltText": {
+      "type": "string",
+      "title": "Image alt text",
+      "description": "Alternative text for image for SEO",
+      "minLength": 0,
+      "maxLength": 50
+    },
+    "seoText": {
+      "type": "string",
+      "title": "SEO Text",
+      "description": "e.g. ladies-sunglasses",
+      "minLength": 0,
+      "maxLength": 100
+    },
+    "display": {
+      "type": "string",
+      "title": "Display type",
+      "description": "How the image should display (Point of Interest, Hotspots, served staticaly (ie, animated GIF)",
+      "enum": [
+        "Point of Interest",
+        "Hotspots",
+        "Static"
+      ]
+    }
+  },
+  "propertyOrder": [
+    "image",
+    "imageAltText",
+    "seoText",
+    "roundel",
+    "display"
+  ],
+  "required": [
+        "imageAltText"
+    ]
+}

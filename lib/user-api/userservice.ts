@@ -67,20 +67,33 @@ class UserProfile {
         persistUserData()
         return this
     }
+
+    delete() {
+        _.remove(userdata, user => user.email === this.email)
+        persistUserData()
+    }
+}
+
+const getUser = (email: string) => {
+    console.log(`user service lookup email [ ${email} ]`)
+    return _.find(userdata, user => user.email === email)
 }
 
 const UserService = {
-    getUser: (email: string) => {
-        console.log(`user service lookup email [ ${email} ]`)
-        return _.find(userdata, user => user.email === email)
-    }
+    getUser,
+
+    createUser: (email: string) => {
+        userdata.push(new UserProfile({ email }))
+        persistUserData()
+        return getUser(email)
+    },
 }
 
 let userHandler = (handler: any) => (req: any, res: any, next: any) => {
     let query = _.merge(req.body, req.query)
     let user = UserService.getUser(query.email)
+    user = handler(user, query)
     if (user) {
-        user = handler(user, query)
         res.status(200).json(user)
     }
     else {

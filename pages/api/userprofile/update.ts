@@ -1,5 +1,5 @@
-import { UserProfile, userHandler } from '@lib/user-api/userservice'
-export default userHandler((user: UserProfile, query: any) => {
+import { userService, UserProfile } from '@lib/user-api/userservice'
+export default userService.handle((user: UserProfile, query: any) => {
     if (query.attribute) {
         user = user.setAttribute(query.attribute, query.value)
     }

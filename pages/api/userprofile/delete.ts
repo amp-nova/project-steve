@@ -1,7 +1,2 @@
-import { UserProfile, userHandler } from '@lib/user-api/userservice'
-export default userHandler((user: UserProfile, query: any) => {
-    if (user) {
-        user.delete()
-    }
-    return user
-})
+import { userService, UserProfile } from '@lib/user-api/userservice'
+export default userService.handle((user: UserProfile, query: any) => userService.delete(user))

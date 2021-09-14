@@ -7,12 +7,15 @@
 	"item": [
 		{
 			"name": "Set attribute",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\": \"davelilly@johndoe.com\",\n    \"attribute\": \"favoriteColor\",\n    \"value\": \"purple\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -20,7 +23,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/userprofile/update",
+					"raw": "http://localhost:3000/api/userprofile/update?email=davelilly@johndoe.com&attribute=favoriteColor&value=maroon",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -30,6 +33,20 @@
 						"api",
 						"userprofile",
 						"update"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "davelilly@johndoe.com"
+						},
+						{
+							"key": "attribute",
+							"value": "favoriteColor"
+						},
+						{
+							"key": "value",
+							"value": "maroon"
+						}
 					]
 				}
 			},
@@ -37,12 +54,15 @@
 		},
 		{
 			"name": "Update interest",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\": \"davelilly@johndoe.com\",\n    \"interest\": \"foo\",\n    \"up\": false\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -50,7 +70,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/userprofile/update",
+					"raw": "http://localhost:3000/api/userprofile/update?email=davelilly@johndoe.com&interest=foo&up=false",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -60,6 +80,20 @@
 						"api",
 						"userprofile",
 						"update"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "davelilly@johndoe.com"
+						},
+						{
+							"key": "interest",
+							"value": "foo"
+						},
+						{
+							"key": "up",
+							"value": "false"
+						}
 					]
 				}
 			},
@@ -67,12 +101,15 @@
 		},
 		{
 			"name": "Login",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\": \"davelilly@johndoe.com\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -80,7 +117,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/userprofile/login",
+					"raw": "http://localhost:3000/api/userprofile/login?email=davelilly@johndoe.com",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -90,6 +127,12 @@
 						"api",
 						"userprofile",
 						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "davelilly@johndoe.com"
+						}
 					]
 				}
 			},

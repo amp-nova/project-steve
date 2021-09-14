@@ -56,14 +56,14 @@ class UserProfile {
         return this
     }
 
-    updateInterest(name: string, up: boolean) {
+    updateInterest(name: string, up: string) {
         let interest = _.find(this.interests, i => i.name === name)
         if (!interest) {
             interest = { name, level: 0 }
             this.interests.push(interest)
         }
 
-        interest.level = up ? interest.level + 1 : interest.level - 1
+        interest.level = up === 'false' ? interest.level - 1 : interest.level + 1
         persistUserData()
         return this
     }

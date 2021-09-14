@@ -1,12 +1,12 @@
 import { UserService } from '../../../lib/user-api/userservice'
 export default function handler(req: any, res: any) {
-    let user = UserService.getUser(req.body.email)
+    let user = UserService.getUser(req.query.email)
     if (user) {
-        if (req.body.attribute) {
-            user = user.setAttribute(req.body.attribute, req.body.value)
+        if (req.query.attribute) {
+            user = user.setAttribute(req.query.attribute, req.query.value)
         }
-        else if (req.body.interest) {
-            user = user.updateInterest(req.body.interest, req.body.up)
+        else if (req.query.interest) {
+            user = user.updateInterest(req.query.interest, req.query.up)
         }
     }
     res.status(200).json(user)

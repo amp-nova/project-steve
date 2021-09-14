@@ -1,13 +1,10 @@
-import { UserService } from '../../../lib/user-api/userservice'
-export default function handler(req: any, res: any) {
-    let user = UserService.getUser(req.query.email)
-    if (user) {
-        if (req.query.attribute) {
-            user = user.setAttribute(req.query.attribute, req.query.value)
-        }
-        else if (req.query.interest) {
-            user = user.updateInterest(req.query.interest, req.query.up)
-        }
+import { UserProfile, userHandler } from '@lib/user-api/userservice'
+export default userHandler((user: UserProfile, query: any) => {
+    if (query.attribute) {
+        user = user.setAttribute(query.attribute, query.value)
     }
-    res.status(200).json(user)
-}
+    else if (query.interest) {
+        user = user.updateInterest(query.interest, query.up)
+    }
+    return user
+})

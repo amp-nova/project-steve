@@ -76,5 +76,17 @@ const UserService = {
     }
 }
 
+let userHandler = (handler: any) => (req: any, res: any, next: any) => {
+    let query = _.merge(req.body, req.query)
+    let user = UserService.getUser(query.email)
+    if (user) {
+        user = handler(user, query)
+        res.status(200).json(user)
+    }
+    else {
+        res.status(401).json({ error: `user [ ${query.email} ] not found` })
+    }
+}
+
 refreshUserData()
-export { UserService, UserProfile }
+export { UserService, UserProfile, userHandler }

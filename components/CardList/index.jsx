@@ -11,8 +11,8 @@ const CardList = ({cards}) => {
             rowGap={1}
         >        
             {
-                cards.map(item => { return (
-                        <GridItem rowSpan={1} colSpan={{base: 1, md: 2}}>
+                cards.map((item,i) => { return (
+                        <GridItem rowSpan={1} colSpan={{base: 1, md: 2}} key={i}>
                             <ContentBlock content={item}/> 
                         </GridItem>
                     )

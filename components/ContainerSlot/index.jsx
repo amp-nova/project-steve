@@ -11,8 +11,8 @@ const ContainerSlot = ({content}) => {
             rowGap={1}
         >        
             {
-                content?.contentTypes?.map(item => { return (
-                        <GridItem rowSpan={1} colSpan={4}>
+                content?.contentTypes?.map((item,i) => { return (
+                        <GridItem rowSpan={1} colSpan={4} key={i}>
                             <ContentBlock content={item}/> 
                         </GridItem>
                     )

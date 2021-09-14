@@ -17,9 +17,9 @@ const SplitBlock = ({
             rowGap={1}
         >
             {
-                content.map(item => {
+                content.map((item,i) => {
                     return (
-                        <GridItem rowSpan={1} colSpan={{base: 1, md: 2}}>
+                        <GridItem rowSpan={1} colSpan={{base: 1, md: 2}} key={i}>
                             <Center>       
                                 <ContentBlock content={item}/>
                             </Center>       

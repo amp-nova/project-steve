@@ -11,8 +11,8 @@ const LandingPage = ({contentTypes}) => {
             rowGap={1}
         >        
             {
-                contentTypes.map(item => { return (
-                        <GridItem rowSpan={1} colSpan={4}>
+                contentTypes.map((item,i) => { return (
+                        <GridItem rowSpan={1} colSpan={4} key={i}>
                             <ContentBlock content={item}/> 
                         </GridItem>
                     )

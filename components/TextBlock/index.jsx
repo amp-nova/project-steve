@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable header/header */
 import React from 'react'
 import {Text, Heading, Link} from '@chakra-ui/react'
 import ReactMarkdown from 'markdown-to-jsx'

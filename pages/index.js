@@ -21,13 +21,7 @@ export default function Home() {
             rowGap={1}
           >
             <GridItem rowSpan={1} colSpan={4}>
-              <ContentBlock request={{ id: "924107a7-dc2b-4d13-90a7-534f4cadfab9" }} />
-            </GridItem>
-            <GridItem rowSpan={1} colSpan={4}>
-              <ContentBlock request={{ id: "fe349147-0c17-4661-806f-841ca2a40bdc" }} />
-            </GridItem>
-            <GridItem rowSpan={1} colSpan={4}>
-              <ContentBlock request={{ id: "0746e882-6a53-4e97-a273-f8e659536773" }} />
+              <ContentBlock request={{ id: "75761646-16b9-4ccd-96bb-dbb1fac6393d" }} />
             </GridItem>
           </Grid>
         </Box>

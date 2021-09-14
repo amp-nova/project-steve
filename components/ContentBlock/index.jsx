@@ -11,6 +11,7 @@ import TextBlock from '../TextBlock'
 import SplitBlock from '../SplitBlock'
 import ContainerSlot from '../ContainerSlot'
 import LandingPageSlot from '../LandingPageSlot'
+import QuestionSet from '../QuestionSet'
 
 const ContentBlock = ({content, request}) => {
     const [publishedContent,setPublishedContent] = useState(undefined)
@@ -35,6 +36,7 @@ const ContentBlock = ({content, request}) => {
         'https://project-steve.amprsa.net/splitBlock.json': SplitBlock,
         'https://project-steve.amprsa.net/landing-page.json': LandingPage,
         'https://project-steve.amprsa.net/landingpage-slot.json': LandingPageSlot,
+        'https://project-steve.amprsa.net/questionSet.json': QuestionSet,
         'https://project-steve.amprsa.net/container-slot.json': ContainerSlot,
         'https://project-steve.amprsa.net/container.json': Container
 

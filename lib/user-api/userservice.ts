@@ -75,6 +75,10 @@ class UserService {
             //   return
             // }
 
+            if (req.method === 'OPTIONS') {
+                return res.status(200).send('ok');
+            }
+
             let query = _.merge(req.body, req.query)
             let user = this.getUser(query.email)
 

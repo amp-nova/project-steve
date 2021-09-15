@@ -1,8 +1,9 @@
 import _ from 'lodash'
 import fs from 'fs-extra'
-import logger from '@lib/utils/logger'
-import config from '@lib/utils/config'
+import logger from '../utils/logger'
+import config from '../utils/config'
 import { UserProfile } from './domain'
+import { isError } from 'util'
 
 class UserService {
     userdata: UserProfile[]
@@ -18,8 +19,9 @@ class UserService {
     diminishInterest() {
         _.each(this.userdata, user => {
             _.each(user.interests, interest => {
-                interest.addPoints(-1)
+                interest.points > 0 && interest.addPoints(-1)
             })
+            user.interests = user.interests.filter(item => item.points > 0);
         })
         logger.debug('[ UserService ] diminishInterest')
         this.persistUserData()

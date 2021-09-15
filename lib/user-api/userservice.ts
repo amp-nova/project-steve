@@ -59,32 +59,6 @@ class UserService {
     handle(handler?: any) {
         let h = handler || ((user: UserProfile, query: any) => user)
         return async (req: any, res: any, next: any) => {
-            // await NextCors(req, res, {
-            //     // Options
-            //     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-            //     origin: '*',
-            //     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-            //  });
-
-            // res.setHeader('Access-Control-Allow-Credentials', true)
-            // res.setHeader('Access-Control-Allow-Origin', '*')
-            // // another common pattern
-            // // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-            // res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
-            // res.setHeader(
-            //   'Access-Control-Allow-Headers',
-            //   'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-            // )
-            // if (req.method === 'OPTIONS') {
-            //   res.status(200).end()
-            //   return
-            // }
-
-            if (req.method === 'OPTIONS') {
-                res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
-                return res.status(200).send('ok');
-            }
-
             let query = _.merge(req.body, req.query)
             let user = this.getUser(query.email)
 

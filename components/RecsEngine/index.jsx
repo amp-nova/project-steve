@@ -12,7 +12,7 @@ const RecsEngine = () => {
 
     const fetchData = async () => {
         let response;
-        response = await fetch(`http://ec2-18-222-105-87.us-east-2.compute.amazonaws.com:3000/api/userprofile/login?email=davelilly@johndoe.com`,
+        response = await fetch(`https://project-steve.ngrok.io/api/userprofile/login?email=davelilly@johndoe.com`,
             { method: 'GET' });
         const responseJson = await response.json()
         setUserProfile(responseJson);

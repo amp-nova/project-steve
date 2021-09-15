@@ -36,7 +36,7 @@ const QuestionSet = ({ multiple, question, answers }) => {
             console.log(answers.filter((item, i) => checkedState[i]));
             answers.filter((item, i) => checkedState[i]).forEach(element => {
                 console.log("ACTION", element.action);
-                let url = `http://ec2-18-222-105-87.us-east-2.compute.amazonaws.com:3000${element.action.endpoint}?email=davelilly@johndoe.com`;
+                let url = `https://project-steve.ngrok.io${element.action.endpoint}?email=davelilly@johndoe.com`;
                 element.action.parameters.forEach(parameter => {
                     url += `&${parameter.name}=${parameter.value}`;
                 });
@@ -48,7 +48,7 @@ const QuestionSet = ({ multiple, question, answers }) => {
             console.log("SINGLE", value);
             console.log(answers[value]);
             console.log("ACTION", answers[value].action);
-            let url = `http://ec2-18-222-105-87.us-east-2.compute.amazonaws.com:3000${answers[value].action.endpoint}?email=davelilly@johndoe.com`;
+            let url = `https://project-steve.ngrok.io${answers[value].action.endpoint}?email=davelilly@johndoe.com`;
             answers[value].action.parameters.forEach(parameter => {
                 url += `&${parameter.name}=${parameter.value}`;
             });

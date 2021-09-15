@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next build && next start",
     "lint": "next lint",
     "automate:provisioning": "cd automation&&demo-cli provisioning generate-request",
     "automate:integration:sfmc": "cd automation&&demo-cli integration generate-sfmc-request",

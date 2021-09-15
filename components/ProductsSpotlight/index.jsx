@@ -38,8 +38,8 @@ const ProductsSpotlight = ({query = "", filters = ""}) => {
             rowGap={4}
             style={{marginBottom: 30}}>
             {
-                products?.hits?.map(product=>{
-                    return ( <GridItem>
+                products?.hits?.map((product,i)=>{
+                    return ( <GridItem key={i}>
                         {
                             product.variations[0]?.images[0] && <Img src={product.variations[0].images[0]}/>
                         }

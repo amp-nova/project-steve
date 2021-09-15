@@ -11,7 +11,7 @@ const RecsEngine = () => {
 
     const fetchData = async () => {
         let response;
-        response = await fetch(`https://project-steve.amprsa.net/api/userprofile/login?email=davelilly@johndoe.com`,
+        response = await fetch(`http://localhost:3000/api/userprofile/login?email=davelilly@johndoe.com`,
             { method: 'GET' });
         const responseJson = await response.json()
         setUserProfile(responseJson);

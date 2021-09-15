@@ -36,7 +36,7 @@ const QuestionSet = ({multiple, question, answers}) => {
             console.log(answers.filter((item,i) => checkedState[i]));
             answers.filter((item,i) => checkedState[i]).forEach(element => {
                 console.log("ACTION", element.action);
-                let url = `https://project-steve.amprsa.net${element.action.endpoint}?email=davelilly@johndoe.com`;
+                let url = `http://localhost:3000${element.action.endpoint}?email=davelilly@johndoe.com`;
                 element.action.parameters.forEach(parameter => {
                     url += `&${parameter.name}=${parameter.value}`;
                 });
@@ -48,7 +48,7 @@ const QuestionSet = ({multiple, question, answers}) => {
             console.log("SINGLE", value);
             console.log(answers[value]);
             console.log("ACTION", answers[value].action);
-            let url = `https://project-steve.amprsa.net${answers[value].action.endpoint}?email=davelilly@johndoe.com`;
+            let url = `http://localhost:3000${answers[value].action.endpoint}?email=davelilly@johndoe.com`;
             answers[value].action.parameters.forEach(parameter => {
                 url += `&${parameter.name}=${parameter.value}`;
             });

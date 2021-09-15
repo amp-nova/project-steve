@@ -16,6 +16,7 @@ import {
 import QuestionSetMultiple from '../QuestionSetMultiple'
 import QuestionSetSingle from '../QuestionSetSingle'
 
+const steveServerConfig = require('../../config/steve-server.json')
 const QuestionSet = ({ multiple, question, answers }) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [value, setValue] = useState();
@@ -36,7 +37,7 @@ const QuestionSet = ({ multiple, question, answers }) => {
             console.log(answers.filter((item, i) => checkedState[i]));
             answers.filter((item, i) => checkedState[i]).forEach(element => {
                 console.log("ACTION", element.action);
-                let url = `https://project-steve.ngrok.io${element.action.endpoint}?email=davelilly@johndoe.com`;
+                let url = `${steveServerConfig.url}${element.action.endpoint}?email=davelilly@johndoe.com`;
                 element.action.parameters.forEach(parameter => {
                     url += `&${parameter.name}=${parameter.value}`;
                 });
@@ -48,7 +49,10 @@ const QuestionSet = ({ multiple, question, answers }) => {
             console.log("SINGLE", value);
             console.log(answers[value]);
             console.log("ACTION", answers[value].action);
-            let url = `https://project-steve.ngrok.io${answers[value].action.endpoint}?email=davelilly@johndoe.com`;
+            let url = `${steveServerConfig.url}${answers[value].action.endpoint}?email=davelilly@johndoe.com`;
+
+            console.log(answers[value])
+
             answers[value].action.parameters.forEach(parameter => {
                 url += `&${parameter.name}=${parameter.value}`;
             });

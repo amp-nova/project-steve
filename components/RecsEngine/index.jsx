@@ -4,6 +4,7 @@ import fetch from 'cross-fetch'
 import {Grid, GridItem} from '@chakra-ui/react'
 import ProductsSpotlight from '../ProductsSpotlight'
 
+const steveServerConfig = require('../../config/steve-server.json')
 const RecsEngine = () => {
     const [userProfile, setUserProfile] = useState({
         interests: [],
@@ -12,7 +13,7 @@ const RecsEngine = () => {
 
     const fetchData = async () => {
         let response;
-        response = await fetch(`https://project-steve.ngrok.io/api/userprofile/login?email=davelilly@johndoe.com`,
+        response = await fetch(`${steveServerConfig.url}/api/userprofile/login?email=davelilly@johndoe.com`,
             { method: 'GET' });
         const responseJson = await response.json()
         setUserProfile(responseJson);

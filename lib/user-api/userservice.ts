@@ -2,8 +2,8 @@ import _ from 'lodash'
 import fs from 'fs-extra'
 import NextCors from 'nextjs-cors'
 
-import logger from '@lib/utils/logger'
-import config from '@lib/utils/config'
+import logger from '../../lib/utils/logger'
+import config from '../utils/config'
 import { UserProfile } from './domain'
 
 class UserService {
@@ -23,6 +23,11 @@ class UserService {
                 interest.points > 0 && interest.addPoints(-1)
             })
             user.interests = user.interests.filter(item => item.points > 0);
+
+            _.each(user.attributes, attribute => {
+                attribute.points > 0 && attribute.addPoints(-1)
+            })
+            user.attributes = user.attributes.filter(item => item.points > 0);
         })
         logger.debug('[ UserService ] diminishInterest')
         this.persistUserData()

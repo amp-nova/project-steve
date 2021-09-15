@@ -17,10 +17,16 @@ class Interest {
 class Attribute {
     name: string
     value: string
+    points: number
 
     constructor(obj: any) {
         this.name = obj.name
         this.value = obj.value
+        this.points = obj.points
+    }
+
+    addPoints(p: number) {
+        this.points = this.points + p
     }
 }
 
@@ -37,13 +43,14 @@ class UserProfile {
         this.interests = _.map(obj.interests, i => new Interest(i)) || []
     }
 
-    setAttribute(name: string, value: string) {
+    setAttribute(name: string, value: string, points: number) {
         let attribute = _.find(this.attributes, i => i.name === name)
         if (!attribute) {
-            attribute = { name, value }
+            attribute = new Attribute({ name, value, points: 10 })
             this.attributes.push(attribute)
         }
 
+        attribute.points = 10
         attribute.value = value
         return this
     }

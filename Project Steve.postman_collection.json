@@ -6,6 +6,178 @@
 	},
 	"item": [
 		{
+			"name": "Create user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/userprofile/create?email=a@bcd.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"userprofile",
+						"create"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "a@bcd.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"a@bcd.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/userprofile/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"userprofile",
+						"create"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "davelilly@johndoe.com",
+							"disabled": true
+						},
+						{
+							"key": "interest",
+							"value": "foo",
+							"disabled": true
+						},
+						{
+							"key": "up",
+							"value": "false",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/userprofile/delete?email=a@bcd.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"userprofile",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "a@bcd.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"a@bcd.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/userprofile/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"userprofile",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "davelilly@johndoe.com",
+							"disabled": true
+						},
+						{
+							"key": "interest",
+							"value": "foo",
+							"disabled": true
+						},
+						{
+							"key": "up",
+							"value": "false",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Set attribute",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -23,7 +195,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/userprofile/update?email=davelilly@johndoe.com&attribute=favoriteColor&value=blue",
+					"raw": "http://localhost:3000/api/userprofile/update?email=davelilly@johndoe.com&attribute=favoriteColor&value=mauve",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -45,7 +217,7 @@
 						},
 						{
 							"key": "value",
-							"value": "blue"
+							"value": "mauve"
 						}
 					]
 				}

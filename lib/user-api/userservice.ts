@@ -1,6 +1,7 @@
 import _ from 'lodash'
 import fs from 'fs-extra'
 import logger from '@lib/utils/logger'
+import config from '@lib/utils/config'
 import { UserProfile } from './domain'
 
 class UserService {
@@ -9,6 +10,19 @@ class UserService {
     constructor() {
         this.userdata = []
         this.refreshUserData()
+        let interestInterval = config.get('interestInterval')
+        logger.info(`[ UserService ] started successfully with [ ${this.userdata.length} ] users; interestInterval is [ ${interestInterval}ms ]`)
+        setInterval(_.bind(this.diminishInterest, this), interestInterval)
+    }
+
+    diminishInterest() {
+        _.each(this.userdata, user => {
+            _.each(user.interests, interest => {
+                interest.addPoints(-1)
+            })
+        })
+        logger.debug('[ UserService ] diminishInterest')
+        this.persistUserData()
     }
 
     refreshUserData() {
@@ -16,15 +30,15 @@ class UserService {
     }
 
     persistUserData() {
-        logger.debug('persisted user data')
+        logger.debug('[ UserService ] persisted user data')
         fs.writeJSONSync('./userdata/userdata.json', this.userdata)
         this.refreshUserData()
     }
 
     getUser(email: string) {
-        logger.debug(`user service lookup email [ ${email} ]`)
+        logger.debug(`[ UserService ] lookup email [ ${email} ]`)
         let user = _.find(this.userdata, user => user.email === email)
-        logger.debug(`user service found [ ${user} ]`)
+        logger.debug(`[ UserService ] found [ ${user} ]`)
         return user
     }
 

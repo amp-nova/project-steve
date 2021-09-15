@@ -4,7 +4,7 @@ export default userService.handle((user: UserProfile, query: any) => {
         user = user.setAttribute(query.attribute, query.value)
     }
     else if (query.interest) {
-        user = user.updateInterest(query.interest, query.up)
+        user = user.updateInterest(query.interest, query.up === 'false' ? -10 : 10)
     }
     return user
 })

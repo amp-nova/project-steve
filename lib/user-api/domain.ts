@@ -2,11 +2,15 @@ import _ from 'lodash'
 
 class Interest {
     name: string
-    level: number
+    points: number
 
     constructor(obj: any) {
         this.name = obj.name
-        this.level = obj.level
+        this.points = obj.points
+    }
+
+    addPoints(p: number) {
+        this.points = this.points + p
     }
 }
 
@@ -44,14 +48,14 @@ class UserProfile {
         return this
     }
 
-    updateInterest(name: string, up: string) {
+    updateInterest(name: string, points: number) {
         let interest = _.find(this.interests, i => i.name === name)
         if (!interest) {
-            interest = { name, level: 0 }
+            interest = new Interest({ name, points: 0 })
             this.interests.push(interest)
         }
 
-        interest.level = up === 'false' ? interest.level - 1 : interest.level + 1
+        interest.addPoints(points)
         return this
     }
 

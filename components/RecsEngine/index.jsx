@@ -31,6 +31,37 @@ const RecsEngine = () => {
     const guessScore = userProfile.interests.find(x=>x.name === 'Designer/Guess')
         ? userProfile.interests.find(x=>x.name === 'Designer/Guess').points : 0;
 
+    const shirtsScore = userProfile.interests.find(x=>x.name === 'Category/Shirts')
+        ? userProfile.interests.find(x=>x.name === 'Category/Shirts').points : 0;
+
+    const ruleEngine = {
+        banner: {
+            limit: 2,
+            rules: [
+                {
+                    validation: () => { return bagsScore > 0 },
+                    contentId: "c7ff7ecd-6256-48bb-bbe4-fcc7a5619dd0",
+                    priority: 1
+                },
+                {
+                    validation: () => { return shirtsScore > 0 },
+                    contentId: "924107a7-dc2b-4d13-90a7-534f4cadfab9",
+                    priority: 2
+                }
+            ]
+        },
+        body: {
+            limit: 5,
+            rules: [
+                {
+                    validation: () => { return guessScore > 0 },
+                    contentId: "0746e882-6a53-4e97-a273-f8e659536773",
+                    priority: 1
+                }
+            ]
+        }
+    }
+
     return (
         <div>
             <Grid
@@ -38,12 +69,6 @@ const RecsEngine = () => {
                 templateColumns={{base: 'repeat(1, 1fr)', md: 'repeat(4, 1fr)'}}
                 columnGap={1}
                 rowGap={1}>
-                {
-                    bagsScore > 0 && ( <GridItem rowSpan={1} colSpan={4}> <ContentBlock request={{ id: "c7ff7ecd-6256-48bb-bbe4-fcc7a5619dd0" }} /> </GridItem> ) 
-                }
-                {
-                    bagsScore == 0 && ( <GridItem rowSpan={1} colSpan={4}> <ContentBlock request={{ id: "20266866-43d8-4678-a4fa-c8841c288dfe" }} /> </GridItem> ) 
-                }
                 <GridItem rowSpan={1} colSpan={4}>
                     <ContentBlock request={{ id: "cd40e03b-4cd7-4084-a38d-256d297105e0" }} />
                 </GridItem>
@@ -51,14 +76,24 @@ const RecsEngine = () => {
                     <ContentBlock request={{ id: "3034d125-fbf7-4819-9c75-ff6f2ecafe43" }} />
                 </GridItem>
                 {
+                    bagsScore > 0 && ( <GridItem rowSpan={1} colSpan={4}> <ContentBlock request={{ id: "c7ff7ecd-6256-48bb-bbe4-fcc7a5619dd0" }} /> </GridItem> ) 
+                }
+                {
+                    shirtsScore > 0 && ( <GridItem rowSpan={1} colSpan={4}> <ContentBlock request={{ id: "924107a7-dc2b-4d13-90a7-534f4cadfab9" }} /> </GridItem> ) 
+                }
+                {
+                    bagsScore == 0 && shirtsScore == 0 && ( <GridItem rowSpan={1} colSpan={4}> <ContentBlock request={{ id: "20266866-43d8-4678-a4fa-c8841c288dfe" }} /> </GridItem> ) 
+                }
+                {
                     guessScore > 0  && ( <GridItem rowSpan={1} colSpan={4}> <ContentBlock request={{ id: "0746e882-6a53-4e97-a273-f8e659536773" }} /> </GridItem> ) 
                 }
                 <GridItem rowSpan={1} colSpan={4}>
                     <ContentBlock request={{ id: "fe96ee67-204f-4a42-9dce-07605eb0cde2" }} />
                 </GridItem>
             </Grid>
-            {bagsScore}
-            {guessScore}
+            <pre>
+                {JSON.stringify(userProfile,null,2)}
+            </pre>
         </div>
     )
 }

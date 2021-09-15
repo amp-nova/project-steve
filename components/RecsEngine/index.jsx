@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ContentBlock from '../ContentBlock'
 import fetch from 'cross-fetch'
 import {Grid, GridItem} from '@chakra-ui/react'
+import ProductsSpotlight from '../ProductsSpotlight'
 
 const RecsEngine = () => {
     const [userProfile, setUserProfile] = useState({
@@ -28,11 +29,32 @@ const RecsEngine = () => {
     const bagsScore = userProfile.interests.find(x=>x.name === 'Category/Bags')
         ? userProfile.interests.find(x=>x.name === 'Category/Bags').points : 0;
 
+    const shirtsScore = userProfile.interests.find(x=>x.name === 'Category/Shirts')
+        ? userProfile.interests.find(x=>x.name === 'Category/Shirts').points : 0;
+
     const guessScore = userProfile.interests.find(x=>x.name === 'Designer/Guess')
         ? userProfile.interests.find(x=>x.name === 'Designer/Guess').points : 0;
 
-    const shirtsScore = userProfile.interests.find(x=>x.name === 'Category/Shirts')
-        ? userProfile.interests.find(x=>x.name === 'Category/Shirts').points : 0;
+    const DKNYScore = userProfile.interests.find(x=>x.name === 'Designer/DKNY')
+        ? userProfile.interests.find(x=>x.name === 'Designer/DKNY').points : 0;
+
+    const MoschinoLoveScore = userProfile.interests.find(x=>x.name === 'Designer/MoschinoLove')
+        ? userProfile.interests.find(x=>x.name === 'Designer/MoschinoLove').points : 0;
+
+    const LaCordeBlancheScore = userProfile.interests.find(x=>x.name === 'Designer/LaCordeBlanche')
+        ? userProfile.interests.find(x=>x.name === 'Designer/LaCordeBlanche').points : 0;
+
+    const favoriteColorFilter = userProfile.attributes.find(x=>x.name === 'favoriteColor')
+        ? `attributes.color:${userProfile.attributes.find(x=>x.name === 'favoriteColor').value}` : ""
+
+    let searchFilters = [];
+    
+    if ( favoriteColorFilter ) searchFilters.push(favoriteColorFilter);
+
+    if ( guessScore > 0 ) searchFilters.push("attributes.designer:guess");
+    if ( DKNYScore > 0 ) searchFilters.push("attributes.designer:dkny");
+    if ( MoschinoLoveScore > 0 ) searchFilters.push("attributes.designer:moschinolove");
+    if ( LaCordeBlancheScore > 0 ) searchFilters.push("attributes.designer:lacordeblanche");
 
     const ruleEngine = {
         banner: {
@@ -75,6 +97,9 @@ const RecsEngine = () => {
                 <GridItem rowSpan={1} colSpan={4}>
                     <ContentBlock request={{ id: "3034d125-fbf7-4819-9c75-ff6f2ecafe43" }} />
                 </GridItem>
+                <GridItem rowSpan={1} colSpan={4}>
+                    <ContentBlock request={{ id: "3762a4cb-ebb5-40ce-8bc9-32cdbdfc49e2" }} />
+                </GridItem>
                 {
                     bagsScore > 0 && ( <GridItem rowSpan={1} colSpan={4}> <ContentBlock request={{ id: "c7ff7ecd-6256-48bb-bbe4-fcc7a5619dd0" }} /> </GridItem> ) 
                 }
@@ -87,12 +112,20 @@ const RecsEngine = () => {
                 {
                     guessScore > 0  && ( <GridItem rowSpan={1} colSpan={4}> <ContentBlock request={{ id: "0746e882-6a53-4e97-a273-f8e659536773" }} /> </GridItem> ) 
                 }
+                {
+                    searchFilters.length > 0 && (
+                        <GridItem rowSpan={1} colSpan={4}><ProductsSpotlight filters={searchFilters.join(' AND ')}/></GridItem>
+                    )
+                }
                 <GridItem rowSpan={1} colSpan={4}>
                     <ContentBlock request={{ id: "fe96ee67-204f-4a42-9dce-07605eb0cde2" }} />
                 </GridItem>
             </Grid>
             <pre>
                 {JSON.stringify(userProfile,null,2)}
+            </pre>
+            <pre>
+                {JSON.stringify(searchFilters,null,2)}
             </pre>
         </div>
     )

@@ -1,13 +1,8 @@
 import React from 'react'
-import {Grid, GridItem, Heading} from '@chakra-ui/react'
-import ContentBlock from '../ContentBlock'
+import {Grid, GridItem} from '@chakra-ui/react'
 import {
     Button,
-    Img,
     Modal,
-    Radio,
-    RadioGroup,
-    Checkbox,
     ModalOverlay,
     ModalContent,
     ModalHeader,
@@ -16,18 +11,15 @@ import {
     ModalCloseButton, 
     useDisclosure
   } from "@chakra-ui/react"
+import QuestionSetMultiple from '../QuestionSetMultiple'
+import QuestionSetSingle from '../QuestionSetSingle'
   
 const QuestionSet = ({multiple, question, answers}) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const [value, setValue] = React.useState("1")
+    
+    const onSave = () => { console.log("SAVED"); onClose() }
 
     return (
-        <Grid
-            templateRows={{base: 'repeat(1, 1fr)', md: 'repeat(auto, 1fr)'}}
-            templateColumns={{base: 'repeat(1, 1fr)', md: 'repeat(4, 1fr)'}}
-            columnGap={1}
-            rowGap={1}
-        >        
             <GridItem rowSpan={1} colSpan={4} textAlign={'center'}>
                 <Button onClick={onOpen}>Ask me some questions!</Button>
                 <Modal isOpen={isOpen} onClose={onClose}>
@@ -41,54 +33,31 @@ const QuestionSet = ({multiple, question, answers}) => {
                             templateRows={{base: 'repeat(1, 1fr)', md: 'repeat(auto, 1fr)'}}
                             templateColumns={{base: 'repeat(1, 1fr)', md: 'repeat(4, 1fr)'}}
                             columnGap={1}
-                            rowGap={1}
-                        >
+                            rowGap={1}>
                             {
-                                multiple.allowMultiple && answers.map((item,i) => {
-                                    return (
-                                        <GridItem rowSpan={1} colSpan={{base: 1, md: 2}} key={i}>
-                                            {item.image &&
-                                                <Img width="100%" alt={item.image.name} 
-                                                    src={`https://${item.image.defaultHost}/i/${item.image.endpoint}/${item.image.name}`}/>
-                                            }
-                                            <Checkbox>{item.text}</Checkbox>
-                                        </GridItem>
-                                    )
-                                })
+                                multiple.allowMultiple && 
+                                <QuestionSetMultiple answers={answers}/>
                             }
                             {
-                                !multiple.allowMultiple && (
-                                    <RadioGroup onChange={setValue} value={value}>
-                                    {
-                                        answers.map((item,i) => {
-                                            return (
-                                                <GridItem rowSpan={1} colSpan={{base: 1, md: 2}} key={i}>
-                                                    <Radio value={i}>
-                                                        {item.image &&
-                                                            <Img width="100%" alt={item.image.name} 
-                                                                src={`https://${item.image.defaultHost}/i/${item.image.endpoint}/${item.image.name}`}/>
-                                                        }
-                                                        {item.text}
-                                                    </Radio>
-                                                </GridItem>
-                                            )
-                                        })
-                                    }
-                                    </RadioGroup>
-                                )
+                                !multiple.allowMultiple && 
+                                <QuestionSetSingle answers={answers}/>
                             }
                         </Grid>
                     </ModalBody>
                     <ModalFooter>
-                    <Button colorScheme="blue" mr={3} onClick={onClose}>
+                    <Button colorScheme="blue" mr={3} onClick={onSave}>
                         Save
+                    </Button>
+                    <Button mr={3} onClick={onClose}>
+                        Skip
+                    </Button>
+                    <Button mr={3} onClick={onClose}>
+                        Cancel
                     </Button>
                     </ModalFooter>
                 </ModalContent>
                 </Modal>
-
             </GridItem>
-        </Grid>
 
     )
 }

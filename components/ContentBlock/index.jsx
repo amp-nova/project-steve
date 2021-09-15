@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import fetchContent from '../../lib/content-api/fetchContent'
+import { fetchContent } from '../../lib/content-api/fetchContent'
 import Banner from '../Banner'
 import Card from '../Card'
 import CardList from '../CardList'

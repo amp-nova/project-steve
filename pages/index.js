@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { Box, Grid, GridItem } from '@chakra-ui/react'
-import ContentBlock from '../components/ContentBlock'
+import RecsEngine from '../components/RecsEngine'
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
             rowGap={1}
           >
             <GridItem rowSpan={1} colSpan={4}>
-              <ContentBlock request={{ id: "75761646-16b9-4ccd-96bb-dbb1fac6393d" }} />
+              <RecsEngine/> 
             </GridItem>
           </Grid>
         </Box>

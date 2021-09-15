@@ -1,1 +1,1 @@
-[{"email":"johndoe@johndoe.com","name":"John Doe","attributes":[],"interests":[]},{"email":"davelilly@johndoe.com","name":"Dave Lilly","attributes":[{"name":"favoriteColor","value":"yes"}],"interests":[{"name":"Underwater Basket Weaving","points":-34},{"name":"foo","points":16}]}]
+[{"email":"johndoe@johndoe.com","name":"John Doe","attributes":[],"interests":[]},{"email":"davelilly@johndoe.com","name":"Dave Lilly","attributes":[],"interests":[]}]

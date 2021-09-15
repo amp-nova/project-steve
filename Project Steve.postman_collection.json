@@ -92,6 +92,80 @@
 			"response": []
 		},
 		{
+			"name": "Read user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/userprofile?email=davelilly@johndoe.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"userprofile"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "davelilly@johndoe.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"davelilly@johndoe.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/userprofile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"userprofile"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "davelilly@johndoe.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Delete user",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -195,7 +269,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/userprofile/update?email=davelilly@johndoe.com&attribute=favoriteColor&value=mauve",
+					"raw": "http://localhost:3000/api/userprofile/update?email=davelilly@johndoe.com&attribute=favoriteColor&value=yes",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -217,7 +291,7 @@
 						},
 						{
 							"key": "value",
-							"value": "mauve"
+							"value": "yes"
 						}
 					]
 				}
@@ -272,7 +346,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/userprofile/update?email=davelilly@johndoe.com&interest=foo&up=false",
+					"raw": "http://localhost:3000/api/userprofile/update?email=davelilly@johndoe.com&interest=foo",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -291,10 +365,6 @@
 						{
 							"key": "interest",
 							"value": "foo"
-						},
-						{
-							"key": "up",
-							"value": "false"
 						}
 					]
 				}

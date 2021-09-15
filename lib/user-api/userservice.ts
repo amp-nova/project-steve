@@ -48,12 +48,13 @@ class UserService {
         return this.getUser(email)
     }
 
-    handle(handler: any) {
+    handle(handler?: any) {
+        let h = handler || ((user: UserProfile, query: any) => user)
         return (req: any, res: any, next: any) => {
             let query = _.merge(req.body, req.query)
             let user = this.getUser(query.email)
 
-            user = handler(user, query)
+            user = h(user, query)
 
             if (user) {
                 res.status(200).json(user)

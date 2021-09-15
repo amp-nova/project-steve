@@ -1,1 +1,1 @@
-[{"email":"johndoe@johndoe.com","name":"John Doe","attributes":[],"interests":[]},{"email":"davelilly@johndoe.com","name":"Dave Lilly","attributes":[{"name":"favoriteColor","value":"yes"}],"interests":[{"name":"Underwater Basket Weaving","points":1},{"name":"foo","points":51}]}]
+[{"email":"johndoe@johndoe.com","name":"John Doe","attributes":[],"interests":[]},{"email":"davelilly@johndoe.com","name":"Dave Lilly","attributes":[{"name":"favoriteColor","value":"yes"}],"interests":[{"name":"Underwater Basket Weaving","points":-32},{"name":"foo","points":18}]}]

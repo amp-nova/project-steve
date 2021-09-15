@@ -12,7 +12,7 @@ const RecsEngine = () => {
 
     const fetchData = async () => {
         let response;
-        response = await fetch(`http://localhost:3000/api/userprofile/login?email=davelilly@johndoe.com`,
+        response = await fetch(`/api/userprofile/login?email=davelilly@johndoe.com`,
             { method: 'GET' });
         const responseJson = await response.json()
         setUserProfile(responseJson);

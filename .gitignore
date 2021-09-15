@@ -35,3 +35,5 @@ yarn-error.log*
 
 automation
 logs
+
+userdata/userdata.json

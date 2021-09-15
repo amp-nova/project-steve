@@ -51,10 +51,17 @@ const RecsEngine = () => {
     
     if ( favoriteColorFilter ) searchFilters.push(favoriteColorFilter);
 
-    if ( guessScore > 0 ) searchFilters.push("attributes.designer:guess");
-    if ( DKNYScore > 0 ) searchFilters.push("attributes.designer:dkny");
-    if ( MoschinoLoveScore > 0 ) searchFilters.push("attributes.designer:moschinolove");
-    if ( LaCordeBlancheScore > 0 ) searchFilters.push("attributes.designer:lacordeblanche");
+    const designers = [
+        { name: 'guess', score: guessScore, filter: 'attributes.designer:guess'},
+        { name: 'dkny', score: DKNYScore, filter: 'attributes.designer:dkny'},
+        { name: 'moschinolove', score: MoschinoLoveScore, filter: 'attributes.designer:moschinolove'},
+        { name: 'lacordeblanche', score: LaCordeBlancheScore, filter: 'attributes.designer:lacordeblanche'}
+    ];
+
+    let topDesigner = designers.reduce(function(prev, current) {
+        return (prev.score > current.score) ? prev : current
+    })
+    if (topDesigner.score > 0) searchFilters.push(topDesigner.filter);
 
     const ruleEngine = {
         banner: {
@@ -126,6 +133,9 @@ const RecsEngine = () => {
             </pre>
             <pre>
                 {JSON.stringify(searchFilters,null,2)}
+            </pre>
+            <pre>
+                {JSON.stringify(topDesigner)}
             </pre>
         </div>
     )

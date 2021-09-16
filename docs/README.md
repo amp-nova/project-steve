@@ -66,7 +66,7 @@ We implemented some advanced user profile using attributes, interests and scores
 Question Sets along with Answers and Actions (triggering REST endpoints) have been fully modelled in Amplience, for a better business user experience and higher flexibility. All content like images, videos, banners, card lists are coming from Amplience too.
 
 ![Question Sets with Answers and Actions in Amplience DC](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-screen05.png)
-![All content in Amplience DC](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-screen06.png)
+![All content in Amplience DC](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-screen06b.png)
 
 ## Challenges we ran into
 Resourcing! The MACHathon team were also committed to other customer projects. So, we were extremely limited to time for build. Our ideation phase had some amazing ideas but with only a few hours to execute them we had to pick a minimum path and produce patterns instead of a fully-fledged application and some hard coded pieces to demonstrate the concepts!

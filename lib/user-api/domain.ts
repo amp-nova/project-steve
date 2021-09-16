@@ -46,11 +46,11 @@ class UserProfile {
     setAttribute(name: string, value: string, points: number) {
         let attribute = _.find(this.attributes, i => i.name === name)
         if (!attribute) {
-            attribute = new Attribute({ name, value, points: 10 })
+            attribute = new Attribute({ name, value, points: 20 })
             this.attributes.push(attribute)
         }
 
-        attribute.points = 10
+        attribute.points = 20
         attribute.value = value
         return this
     }

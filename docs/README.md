@@ -9,9 +9,9 @@ The goal was to start with a blank site experience which hydrates dynamically ba
 
 These could be simple questions, games or click interactions to drive content and products to the end user to suit their needs. Each interaction would build a user profile and weightings and customers could not only change their answers but see why their experience was showing certain things and how the weighting was made. 
 
-![Blank Site](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-screen02.png)
-![Blank Site](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-screen04.png)
-![Blank Site](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-screen03.png)
+![Asking for Categories inspiration](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-screen02.png)
+![Asking for Designer inspiration](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-screen04.png)
+![Personalized content based on attributes & interests](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-screen03.png)
 
 Over time certain preferences would also fade so that customers can evolved and not end up ‘stuck’ in a personalised route.
 
@@ -27,7 +27,7 @@ The application is a simple React Next.js, deployed on Vercel and consuming cont
 
 There are some simple API connectors to fetch content based on user interactions and a simple component which can draw any components dynamically onto the page when the user profile changes. We are also using the Serverless feature from Next.js to update the user profile using REST endpoints.
 
-![Blank Site](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-architecture.png)
+![Current Architecture](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-architecture.png)
 
 We implemented some advanced user profile using attributes, interests and scores to give more flexibility to the recommendation engine. Scores are also decreasing over time, keeping the personalization fresh, based on the latest user interactions (questions answered, and potentially categories & products browsed, clicks, time spend on a product detail page, etc.).
 
@@ -65,8 +65,8 @@ We implemented some advanced user profile using attributes, interests and scores
 
 Question Sets along with Answers and Actions (triggering REST endpoints) have been fully modelled in Amplience, for a better business user experience and higher flexibility. All content like images, videos, banners, card lists are coming from Amplience too.
 
-![Blank Site](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-screen05.png)
-![Blank Site](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-screen06.png)
+![Question Sets with Answers and Actions in Amplience DC](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-screen05.png)
+![All content in Amplience DC](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-screen06.png)
 
 ## Challenges we ran into
 Resourcing! The MACHathon team were also committed to other customer projects. So, we were extremely limited to time for build. Our ideation phase had some amazing ideas but with only a few hours to execute them we had to pick a minimum path and produce patterns instead of a fully-fledged application and some hard coded pieces to demonstrate the concepts!

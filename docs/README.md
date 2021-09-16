@@ -27,9 +27,12 @@ The application is a simple React Next.js, deployed on Vercel and consuming cont
 
 There are some simple API connectors to fetch content based on user interactions and a simple component which can draw any components dynamically onto the page when the user profile changes. We are also using the Serverless feature from Next.js to update the user profile using REST endpoints.
 
+![Blank Site](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-architecture.png)
+
 We implemented some advanced user profile using attributes, interests and scores to give more flexibility to the recommendation engine. Scores are also decreasing over time, keeping the personalization fresh, based on the latest user interactions (questions answered, and potentially categories & products browsed, clicks, time spend on a product detail page, etc.).
 
-```{
+```
+{
   "email": "davelilly@johndoe.com",
   "name": "Dave Lilly",
   "attributes": [

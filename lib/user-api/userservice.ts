@@ -52,7 +52,7 @@ class UserService {
 
     createUser(email: string) {
         this.userdata.push(new UserProfile({ email }))
-        this.persistUserData()
+        // this.persistUserData()
         return this.getUser(email)
     }
 
@@ -76,7 +76,7 @@ class UserService {
     delete(user: UserProfile) {
         if (user) {
             _.remove(this.userdata, x => user.email === x.email)
-            this.persistUserData()
+            // this.persistUserData()
         }
         return user
     }

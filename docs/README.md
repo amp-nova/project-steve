@@ -10,6 +10,7 @@ The goal was to start with a blank site experience which hydrates dynamically ba
 These could be simple questions, games or click interactions to drive content and products to the end user to suit their needs. Each interaction would build a user profile and weightings and customers could not only change their answers but see why their experience was showing certain things and how the weighting was made. 
 
 ![Blank Site](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-screen02.png)
+![Blank Site](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-screen04.png)
 ![Blank Site](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-screen03.png)
 
 Over time certain preferences would also fade so that customers can evolved and not end up ‘stuck’ in a personalised route.

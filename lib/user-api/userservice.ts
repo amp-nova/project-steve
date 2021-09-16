@@ -13,7 +13,7 @@ class UserService {
         this.userdata = []
         this.refreshUserData()
         let interestInterval = config.get('interestInterval')
-        logger.info(`[ UserService ] started successfully with [ ${this.userdata.length} ] users; interestInterval is [ ${interestInterval}ms ]`)
+        // logger.info(`[ UserService ] started successfully with [ ${this.userdata.length} ] users; interestInterval is [ ${interestInterval}ms ]`)
         setInterval(_.bind(this.diminishInterest, this), interestInterval)
     }
 
@@ -29,24 +29,27 @@ class UserService {
             })
             user.attributes = user.attributes.filter(item => item.points > 0);
         })
-        logger.debug('[ UserService ] diminishInterest')
+        // logger.debug('[ UserService ] diminishInterest')
         this.persistUserData()
     }
 
     refreshUserData() {
-        this.userdata = _.map(fs.readJSONSync('./userdata/userdata.json'), user => new UserProfile(user))
+        // this.userdata = _.map(fs.readJSONSync('./userdata/userdata.json'), user => new UserProfile(user))
+        this.userdata = _.map(
+            [{"email":"johndoe@johndoe.com","name":"John Doe","attributes":[],"interests":[]},{"email":"davelilly@johndoe.com","name":"Dave Lilly","attributes":[],"interests":[]}]
+            , user => new UserProfile(user))
     }
 
     persistUserData() {
-        logger.debug('[ UserService ] persisted user data')
-        fs.writeJSONSync('./userdata/userdata.json', this.userdata)
+        // logger.debug('[ UserService ] persisted user data')
+        // fs.writeJSONSync('./userdata/userdata.json', this.userdata)
         this.refreshUserData()
     }
 
     getUser(email: string) {
-        logger.debug(`[ UserService ] lookup email [ ${email} ]`)
+        // logger.debug(`[ UserService ] lookup email [ ${email} ]`)
         let user = _.find(this.userdata, user => user.email === email)
-        logger.debug(`[ UserService ] found [ ${user} ]`)
+        // logger.debug(`[ UserService ] found [ ${user} ]`)
         return user
     }
 

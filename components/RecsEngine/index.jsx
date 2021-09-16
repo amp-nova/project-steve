@@ -64,7 +64,7 @@ const RecsEngine = () => {
     })
     if (topDesigner.score > 0) {
         searchFilters.push(topDesigner.filter);
-        searchFilters.push("variations.price>20000");
+        searchFilters.push("variations.price>16500");
     }
 
     const ruleEngine = {

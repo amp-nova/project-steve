@@ -1,5 +1,5 @@
 {
     "prodUrl": "https://project-steve.ngrok.io",
     "devUrl": "http://localhost:3000",
-    "url": "https://project-steve.ngrok.io"
+    "url": "http://localhost:3000"
 }

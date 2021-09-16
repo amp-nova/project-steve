@@ -118,7 +118,7 @@ const RecsEngine = () => {
                     bagsScore == 0 && shirtsScore == 0 && ( <GridItem rowSpan={1} colSpan={4}> <ContentBlock request={{ id: "20266866-43d8-4678-a4fa-c8841c288dfe" }} /> </GridItem> ) 
                 }
                 {
-                    guessScore > 0  && ( <GridItem rowSpan={1} colSpan={4}> <ContentBlock request={{ id: "0746e882-6a53-4e97-a273-f8e659536773" }} /> </GridItem> ) 
+                    DKNYScore > 0  && ( <GridItem rowSpan={1} colSpan={4}> <ContentBlock request={{ id: "0746e882-6a53-4e97-a273-f8e659536773" }} /> </GridItem> ) 
                 }
                 {
                     searchFilters.length > 0 && (

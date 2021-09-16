@@ -29,6 +29,37 @@ There are some simple API connectors to fetch content based on user interactions
 
 We implemented some advanced user profile using attributes, interests and scores to give more flexibility to the recommendation engine. Scores are also decreasing over time, keeping the personalization fresh, based on the latest user interactions (questions answered, and potentially categories & products browsed, clicks, time spend on a product detail page, etc.).
 
+```{
+  "email": "davelilly@johndoe.com",
+  "name": "Dave Lilly",
+  "attributes": [
+    {
+      "name": "favoriteColor",
+      "value": "red",
+      "points": 8
+    }
+  ],
+  "interests": [
+    {
+      "name": "Designer/MoschinoLove",
+      "points": 24
+    },
+    {
+      "name": "Designer/Guess",
+      "points": 5
+    },
+    {
+      "name": "Category/Bags",
+      "points": 36
+    },
+    {
+      "name": "Category/Shirts",
+      "points": 6
+    }
+  ]
+}
+```
+
 Question Sets along with Answers and Actions (triggering REST endpoints) have been fully modelled in Amplience, for a better business user experience and higher flexibility.
 
 ## Challenges we ran into

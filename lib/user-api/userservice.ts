@@ -43,7 +43,7 @@ class UserService {
     persistUserData() {
         // logger.debug('[ UserService ] persisted user data')
         // fs.writeJSONSync('./userdata/userdata.json', this.userdata)
-        this.refreshUserData()
+        // this.refreshUserData()
     }
 
     getUser(email: string) {

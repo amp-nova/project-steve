@@ -62,7 +62,10 @@ const RecsEngine = () => {
     let topDesigner = designers.reduce(function(prev, current) {
         return (prev.score > current.score) ? prev : current
     })
-    if (topDesigner.score > 0) searchFilters.push(topDesigner.filter);
+    if (topDesigner.score > 0) {
+        searchFilters.push(topDesigner.filter);
+        searchFilters.push("variations.price>15000");
+    }
 
     const ruleEngine = {
         banner: {
@@ -100,10 +103,10 @@ const RecsEngine = () => {
                 columnGap={1}
                 rowGap={1}>
                 <GridItem rowSpan={1} colSpan={4}>
-                    <ContentBlock request={{ id: "cd40e03b-4cd7-4084-a38d-256d297105e0" }} />
+                    <ContentBlock request={{ id: "3034d125-fbf7-4819-9c75-ff6f2ecafe43" }} />
                 </GridItem>
                 <GridItem rowSpan={1} colSpan={4}>
-                    <ContentBlock request={{ id: "3034d125-fbf7-4819-9c75-ff6f2ecafe43" }} />
+                    <ContentBlock request={{ id: "cd40e03b-4cd7-4084-a38d-256d297105e0" }} />
                 </GridItem>
                 <GridItem rowSpan={1} colSpan={4}>
                     <ContentBlock request={{ id: "3762a4cb-ebb5-40ce-8bc9-32cdbdfc49e2" }} />

@@ -5,6 +5,8 @@ We wanted to prove that we can bring the knowledge and experience into the digit
 
 The goal was to start with a blank site experience which hydrates dynamically based on user inputs. 
 
+![Blank Site](https://raw.githubusercontent.com/amp-nova/project-steve/main/docs/project-steve-screen01.jpg)
+
 These could be simple questions, games or click interactions to drive content and products to the end user to suit their needs. Each interaction would build a user profile and weightings and customers could not only change their answers but see why their experience was showing certain things and how the weighting was made. Over time certain preferences would also fade so that customers can evolved and not end up ‘stuck’ in a personalised route.
 
 ## What it does
